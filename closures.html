@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var courseName = 'java script';
+    function outer()
+    {
+        var outerName = 'rama';
+        console.log('outer function::');
+        console.log(courseName);
+        function inner(){
+            console.log('inner function::');
+            console.log(courseName);
+            console.log(outerName);
+            function inner2(){
+                console.log('inner2 function::');
+                console.log(courseName);
+                console.log(outerName);
+            }
+            inner2();
+        }
+        inner();
+    }
+    outer();
+</script>
+</body>
+</html>

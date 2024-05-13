@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // first way 
+        var student1 = {
+            name: 'rama krishna',
+            age: 25,
+            firstName: function(){
+                console.log("name::"+ this.name);
+            }
+        }
+        var student2 = {
+            name: 'priya',
+            age: 23,
+        }
+
+        student2.__proto__ = student1;
+
+        student2.firstName();
+
+        // second way
+        function employee(name){
+            this.name = name;
+        }
+        employee.prototype.getEmpName = function(){
+            console.log('employee name::',this.name);
+        }
+        var obj = new employee('rambabu');
+        obj.getEmpName();
+
+        //third way
+        String.prototype.camelCase = function(){
+            var words = this.split(' ');
+            for(let i=0; i >= words.length; i++){
+                words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+            }
+            return words.join('');
+        }
+
+        var firstName = 'sai siva rama krishna';
+        console.log(firstName.camelCase());
+
+    </script>
+</body>
+</html>
